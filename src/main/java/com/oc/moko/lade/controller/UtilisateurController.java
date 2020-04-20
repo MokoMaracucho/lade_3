@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.oc.moko.lade.entity.Utilisateur;
+import com.oc.moko.lade.exception.ResourceNotFoundException;
+import com.oc.moko.lade.service.UtilisateurService;
 
 @Controller
 @RequestMapping("/utilisateur")
@@ -27,7 +29,7 @@ public class UtilisateurController {
 
     @GetMapping("/listeUtilisateurs")
     public String listeUtilisateurs(Model model) {
-        List<Utilisateur> listeUtilisateurs = utilisateurService.getListeUtilisateurs();
+        List<Utilisateur> listeUtilisateurs = utilisateurService.listeUtilisateurs();
         model.addAttribute("listeUtilisateurs", listeUtilisateurs);
         return "list-customers";
     }
