@@ -43,7 +43,7 @@ public class PersistenceJpaConfig {
         final LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource());
         entityManagerFactoryBean.setPackagesToScan(new String[] {
-            "net.javaguides.springmvc.entity"
+            "com.oc.moko.lade.entity"
         });
 
         final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -68,8 +68,8 @@ public class PersistenceJpaConfig {
         final DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(environment.getProperty("jdbc.driverClassName"));
         dataSource.setUrl(environment.getProperty("jdbc.url"));
-        dataSource.setUsername(environment.getProperty("jdbc.user"));
-        dataSource.setPassword(environment.getProperty("jdbc.pass"));
+        dataSource.setUsername(environment.getProperty("jdbc.administrateur"));
+        dataSource.setPassword(environment.getProperty("jdbc.motDePasse"));
         return dataSource;
     }
 
