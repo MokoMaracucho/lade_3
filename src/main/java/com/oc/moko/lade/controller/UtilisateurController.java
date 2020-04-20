@@ -27,25 +27,25 @@ public class UtilisateurController {
     @Autowired
     private UtilisateurService utilisateurService;
 
-    @GetMapping("/listeUtilisateurs")
-    public String listeUtilisateurs(Model model) {
-        List<Utilisateur> listeUtilisateurs = utilisateurService.listeUtilisateurs();
-        model.addAttribute("listeUtilisateurs", listeUtilisateurs);
-        return "list-customers";
-    }
-
     @GetMapping("/inscription_utilisateur")
     public String showFormForAdd(Model model) {
         logger.debug("Dans la méthode qui manipule le formulaire d'inscription.");
         Utilisateur utilisateur = new Utilisateur();
         model.addAttribute("utilisateur", utilisateur);
-        return "customer-form";
+        return "inscription_utilisateur";
     }
 
-    @PostMapping("/enregistrerUtilisateur")
+    @PostMapping("/enregistrer_utilisateur")
     public String enregistrerUtilisateur(@ModelAttribute("utilisateur") Utilisateur utilisateur) {
     	utilisateurService.enregistrerUtilisateur(utilisateur);
-        return "redirect:/utilisateur/listeUtilisateurs";
+        return "redirect:/utilisateur/liste_utilisateurs";
+    }
+
+    @GetMapping("/liste_utilisateurs")
+    public String listeUtilisateurs(Model model) {
+        List<Utilisateur> listeUtilisateurs = utilisateurService.listeUtilisateurs();
+        model.addAttribute("listeUtilisateurs", listeUtilisateurs);
+        return "liste_utilisateurs";
     }
 
     @GetMapping("/maj_utilisateur")
@@ -59,6 +59,6 @@ public class UtilisateurController {
     @GetMapping("/supprimer_utilisateur")
     public String supprimerUtilisateurParId(@RequestParam("idUtilisateur") UUID idUtilisateur) throws ResourceNotFoundException {
     	utilisateurService.supprimerUtilisateurParId(idUtilisateur);
-        return "redirect:/utilisateur/listeUtilisateurs";
+        return "redirect:/utilisateur/liste_utilisateurs";
     }
 }
