@@ -20,10 +20,10 @@
 	</properties>
 
 	<dependencies>
-		<!--  Spring MVC -->
+		<!-- Spring -->
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
@@ -31,6 +31,18 @@
                 </exclusion>
             </exclusions>
 		</dependency>
+		
+		<!--  Spring MVC -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework</groupId> -->
+<!-- 			<artifactId>spring-webmvc</artifactId> -->
+<!--             <exclusions> -->
+<!--                 <exclusion> -->
+<!--                     <groupId>commons-logging</groupId> -->
+<!--                     <artifactId>commons-logging</artifactId> -->
+<!--                 </exclusion> -->
+<!--             </exclusions> -->
+<!-- 		</dependency> -->
 		
         <!-- Spring ORM -->
         <dependency>
@@ -98,7 +110,7 @@
 		    <scope>test</scope>
 		</dependency>
 
-		<!-- JUnit -->
+		<!--  ¡JUnit -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -120,5 +132,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
